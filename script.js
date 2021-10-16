@@ -170,7 +170,7 @@ document.getElementById("Russia").addEventListener("click", function(event) {
           document.getElementById("newsResults").innerHTML = results;
       });
 });
-
+/*
 document.getElementById("United States").addEventListener("click", function(event) {
   event.preventDefault();
   var country = decideCountry("United States");
@@ -190,3 +190,4 @@ document.getElementById("United States").addEventListener("click", function(even
           document.getElementById("newsResults").innerHTML = results;
       });
 });
+*/
