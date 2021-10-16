@@ -1,4 +1,5 @@
-const apiKey = '5affd389c14385503fc6f4e3c7c6c651';
+const apiKey = '319dcfbfcc4e00035c21c78535d2873a';
+
 
 function createURL(country, apiKey) {
   url = 'https://gnews.io/api/v4/top-headlines?&' +
@@ -6,6 +7,23 @@ function createURL(country, apiKey) {
       'token=' + apiKey;
   return url;
 }
+
+function defaultPage(url)
+{
+  fetch(url)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+          console.log(data);
+
+          let results = "";
+          results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'he');
+          document.getElementById("newsResults").innerHTML = results;
+      });
+}
+window.onload = defaultPage(createURL('us',apiKey));
 
 function decideCountry(value) {
   var country = "";
@@ -24,6 +42,9 @@ function decideCountry(value) {
       break;
     case 'Russia':
       country = 'ru';
+      break;
+    case 'United States':
+      country = 'us';
       break;
     /*default:
       console.log(`Sorry, we are out of ${expr}.`);*/
@@ -65,6 +86,7 @@ document.getElementById("Brazil").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'pt');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
@@ -84,6 +106,7 @@ document.getElementById("Egypt").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'ar');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
@@ -103,6 +126,7 @@ document.getElementById("Japan").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'ja');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
@@ -122,6 +146,7 @@ document.getElementById("Israel").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'he');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
@@ -141,6 +166,27 @@ document.getElementById("Russia").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'ru');
+          document.getElementById("newsResults").innerHTML = results;
+      });
+});
+
+document.getElementById("United States").addEventListener("click", function(event) {
+  event.preventDefault();
+  var country = decideCountry("United States");
+  var url = "";
+  url = createURL(country, apiKey);
+
+  fetch(url)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+          console.log(data);
+
+          let results = "";
+          results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'en');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
