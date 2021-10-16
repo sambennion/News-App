@@ -1,3 +1,7 @@
+body{
+  margin: 0;
+  padding: 0;
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -29,6 +33,7 @@ a:visited {
 .news {
   display: grid;
   margin: auto 3%;
+  margin-top: 3px;
 }
 
 .article {
