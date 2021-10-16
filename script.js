@@ -1,5 +1,6 @@
 const apiKey = '319dcfbfcc4e00035c21c78535d2873a';
 
+const navIcon = document.getElementById('navbar-toggler-icon');
 
 function createURL(country, apiKey) {
   url = 'https://gnews.io/api/v4/top-headlines?&' +
@@ -16,7 +17,7 @@ function defaultPage(url)
       })
       .then(function (data) {
           console.log(data);
-
+          navIcon.innerHTML = "<img src='images\\united-kingdom.png'>"; 
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'he');
@@ -43,8 +44,11 @@ function decideCountry(value) {
     case 'Russia':
       country = 'ru';
       break;
-    case 'United States':
+    case 'United-States':
       country = 'us';
+      break;
+    case 'UK':
+      country = 'uk';
       break;
     /*default:
       console.log(`Sorry, we are out of ${expr}.`);*/
@@ -58,6 +62,7 @@ function decideCountry(value) {
 }
 
 function displayNews(data, results) {
+  
   for (let i=0; i < data.articles.length; i++) {
     results += '<div class=\"article\">' +
       '<div class=\"info\">' +
@@ -83,7 +88,7 @@ document.getElementById("Brazil").addEventListener("click", function(event) {
       })
       .then(function (data) {
           console.log(data);
-
+          navIcon.innerHTML = "<img src='images\\brazil.png'>"; 
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'pt');
@@ -103,7 +108,7 @@ document.getElementById("Egypt").addEventListener("click", function(event) {
       })
       .then(function (data) {
           console.log(data);
-
+          navIcon.innerHTML = "<img src='images\\egypt.png'>"; 
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'ar');
@@ -123,7 +128,7 @@ document.getElementById("Japan").addEventListener("click", function(event) {
       })
       .then(function (data) {
           console.log(data);
-
+          navIcon.innerHTML = "<img src='images\\japan.png'>"; 
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'ja');
@@ -143,7 +148,7 @@ document.getElementById("Israel").addEventListener("click", function(event) {
       })
       .then(function (data) {
           console.log(data);
-
+          navIcon.innerHTML = "<img src='images\\israel.png'>"; 
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'he');
@@ -163,17 +168,17 @@ document.getElementById("Russia").addEventListener("click", function(event) {
       })
       .then(function (data) {
           console.log(data);
-
+          navIcon.innerHTML = "<img src='images\\russia.png'>"; 
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'ru');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
-/*
-document.getElementById("United States").addEventListener("click", function(event) {
+
+document.getElementById("United-States").addEventListener("click", function(event) {
   event.preventDefault();
-  var country = decideCountry("United States");
+  var country = decideCountry("United-States");
   var url = "";
   url = createURL(country, apiKey);
 
@@ -183,11 +188,29 @@ document.getElementById("United States").addEventListener("click", function(even
       })
       .then(function (data) {
           console.log(data);
-
+          navIcon.innerHTML = "<img src='images\\united-states.png'>"; 
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'en');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
-*/
+document.getElementById("UK").addEventListener("click", function(event) {
+  event.preventDefault();
+  var country = decideCountry("UK");
+  var url = "";
+  url = createURL(country, apiKey);
+
+  fetch(url)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+          console.log(data);
+          navIcon.innerHTML = "<img src='images\\united-kingdom.png'>"; 
+          let results = "";
+          results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'en');
+          document.getElementById("newsResults").innerHTML = results;
+      });
+});

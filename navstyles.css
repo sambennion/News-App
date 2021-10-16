@@ -13,3 +13,7 @@
 .navbar-nav{
     flex-direction: row;
 }
+#navbar-toggler-icon img{
+    width: 32px; 
+    height: 32px;
+}
