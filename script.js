@@ -1,4 +1,5 @@
-const apiKey = '5affd389c14385503fc6f4e3c7c6c651';
+const apiKey = '319dcfbfcc4e00035c21c78535d2873a';
+
 
 function createURL(country, apiKey) {
   url = 'https://gnews.io/api/v4/top-headlines?&' +
