@@ -66,6 +66,7 @@ document.getElementById("Brazil").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'pt');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
@@ -85,6 +86,7 @@ document.getElementById("Egypt").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'ar');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
@@ -104,6 +106,7 @@ document.getElementById("Japan").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'ja');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
@@ -123,6 +126,7 @@ document.getElementById("Israel").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'he');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
@@ -142,6 +146,7 @@ document.getElementById("Russia").addEventListener("click", function(event) {
 
           let results = "";
           results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'ru');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
