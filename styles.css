@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Bebas Neue', cursive;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.countryIcon {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+}
+
+.countryIcon img {
+  width: 100%;
+  height: 100%;
+}
+
+.news {
+  display: grid;
+  margin: auto 3%;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border-bottom: 1px dashed grey;
+  margin: 3% auto;
+  grid-gap: 2%;
+  /*
+  background-color: gold;
+  height: 100px;
+  width: 100px;
+  font-weight: bold;
+  text-align: center;*/
+}
+
+.info {
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+}
+
+.sourceName {
+  align-self: center;
+  font-size: 2vw;
+  color: grey;
+}
+
+.title {
+  align-self: center;
+}
+
+.published {
+  align-self: center;
+  font-size: 1vw;
+}
+
+.preview {
+  justify-self: center;
+  align-self: center;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {}
