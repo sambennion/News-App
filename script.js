@@ -8,6 +8,23 @@ function createURL(country, apiKey) {
   return url;
 }
 
+function defaultPage(url)
+{
+  fetch(url)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+          console.log(data);
+
+          let results = "";
+          results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'he');
+          document.getElementById("newsResults").innerHTML = results;
+      });
+}
+window.onload = defaultPage(createURL('us',apiKey));
+
 function decideCountry(value) {
   var country = "";
   switch (value) {
@@ -25,6 +42,9 @@ function decideCountry(value) {
       break;
     case 'Russia':
       country = 'ru';
+      break;
+    case 'United States':
+      country = 'us';
       break;
     /*default:
       console.log(`Sorry, we are out of ${expr}.`);*/
@@ -147,6 +167,26 @@ document.getElementById("Russia").addEventListener("click", function(event) {
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'ru');
+          document.getElementById("newsResults").innerHTML = results;
+      });
+});
+
+document.getElementById("United States").addEventListener("click", function(event) {
+  event.preventDefault();
+  var country = decideCountry("United States");
+  var url = "";
+  url = createURL(country, apiKey);
+
+  fetch(url)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+          console.log(data);
+
+          let results = "";
+          results = displayNews(data, results);
+          document.documentElement.setAttribute("lang", 'en');
           document.getElementById("newsResults").innerHTML = results;
       });
 });
