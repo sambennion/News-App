@@ -17,7 +17,7 @@ function defaultPage(url)
       })
       .then(function (data) {
           console.log(data);
-          navIcon.innerHTML = "<img src='images\\united-states.png'>"; 
+          navIcon.innerHTML = "<img src='images\\united-kingdom.png'>"; 
           let results = "";
           results = displayNews(data, results);
           document.documentElement.setAttribute("lang", 'he');
